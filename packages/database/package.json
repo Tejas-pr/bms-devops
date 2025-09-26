@@ -1,0 +1,19 @@
+{
+  "name": "@repo/database",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^6.16.2",
+    "@prisma/extension-accelerate": "^2.0.2",
+    "@repo/typescript-config": "workspace:*",
+    "prisma": "^6.16.2"
+  },
+  "exports": {
+    ".": "./index.ts"
+  }
+}
