@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack --port 3000",
-    "build": "next build",
+    "build": "grep '^DATABASE_URL=' ../../.env > .env.tmp && cat .env >> .env.tmp 2>/dev/null || true && mv .env.tmp .env && next build",
     "start": "next start",
     "lint": "next lint --max-warnings 0",
     "check-types": "tsc --noEmit"
