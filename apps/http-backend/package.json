@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "ts-node-dev --respawn src/index.ts",
-    "build": "tsc",
-    "start": "node dist/index.js"
+    "build:db": "dotenv -e ../../.env -- tsc -b ../../packages/database/tsconfig.json",
+    "build": "dotenv -e ../../.env -- tsc",
+    "start": "dotenv -e ../../.env -- npm run build:db && node dist/index.js",
+    "dev": "dotenv -e ../../.env -- ts-node-dev --respawn src/index.ts"
   },
   "dependencies": {
     "@repo/database": "workspace:*",
