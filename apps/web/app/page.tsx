@@ -21,7 +21,7 @@ export default async function Home() {
       <h1>All Users</h1>
       <div>
         {users.length > 0 ? (
-          users.map((user) => (
+          users.map((user: any) => (
             <div key={user.id}>
               <p>ID: {user.id}</p>
               <p>Username: {user.username}</p>

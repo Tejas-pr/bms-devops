@@ -1,16 +1,15 @@
 {
   "name": "@repo/database",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "db:generate": "prisma generate",
-    "db:migrate": "prisma migrate dev --skip-generate",
-    "db:deploy": "prisma migrate deploy"
+    "prebuild": "dotenv -e ../../.env -- prisma generate",
+    "build": "dotenv -e ../../.env -- tsc",
+    "dev": "dotenv -e ../../.env -- tsc --watch",
+    "db:generate": "dotenv -e ../../.env -- prisma generate",
+    "db:migrate": "dotenv -e ../../.env -- prisma migrate dev --skip-generate",
+    "db:deploy": "dotenv -e ../../.env -- prisma migrate deploy"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@prisma/client": "^6.16.2",
     "@prisma/extension-accelerate": "^2.0.2",
@@ -18,6 +17,10 @@
     "prisma": "^6.16.2"
   },
   "exports": {
-    ".": "./index.ts"
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
   }
 }
